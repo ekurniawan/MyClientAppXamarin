@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MyClientApp.Models
 {
+    //
     public class Employee
     {
         public int EmpId { get; set; }
