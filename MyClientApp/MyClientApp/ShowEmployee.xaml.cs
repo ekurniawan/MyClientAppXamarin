@@ -25,5 +25,10 @@ namespace MyClientApp
             base.OnAppearing();
             lvEmployee.ItemsSource = await empServices.GetData();
         }
+
+        private async void btnAddEmployee_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddEmployeePage());
+        }
     }
 }
