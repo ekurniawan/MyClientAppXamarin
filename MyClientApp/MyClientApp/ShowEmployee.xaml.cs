@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyClientApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,17 @@ namespace MyClientApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShowEmployee : ContentPage
     {
+        private EmployeeServices empServices;
         public ShowEmployee()
         {
             InitializeComponent();
+            empServices = new EmployeeServices();
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            lvEmployee.ItemsSource = await empServices.GetData();
         }
     }
 }
