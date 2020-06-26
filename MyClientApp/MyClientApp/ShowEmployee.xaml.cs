@@ -1,4 +1,5 @@
-﻿using MyClientApp.Services;
+﻿using MyClientApp.Models;
+using MyClientApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,14 @@ namespace MyClientApp
         {
             lvEmployee.ItemsSource = await empServices.GetData();
             lvEmployee.IsRefreshing = false;
+        }
+
+        private async void lvEmployee_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var data = (Employee)e.Item;
+            EditEmployeePage editPage = new EditEmployeePage();
+            editPage.BindingContext = data;
+            await Navigation.PushAsync(editPage);
         }
     }
 }
