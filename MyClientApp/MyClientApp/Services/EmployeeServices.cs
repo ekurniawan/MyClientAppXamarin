@@ -71,5 +71,20 @@ namespace MyClientApp.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task DeleteData(string id)
+        {
+            var uriPut = new Uri($"{restUrl}api/Employee/{id}");
+            try
+            {
+                var response = await _client.DeleteAsync(uriPut);
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception("Gagal delete data !");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
