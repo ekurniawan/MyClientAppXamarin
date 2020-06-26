@@ -31,7 +31,8 @@ namespace MyClientApp
                     EmpName = entryName.Text,
                     Department = entryDepartment.Text,
                     Designation = entryDesignation.Text,
-                    Qualification = entryQualification.Text
+                    Qualification = entryQualification.Text,
+                    BirthDate = DateTime.Now
                 };
                 await empServices.UpdateData(editEmp);
                 await DisplayAlert("Keterangan", $"Data Employee berhasil diupdate", "OK");
