@@ -9,8 +9,7 @@ namespace MyClientApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new ShowEmployee());
         }
 
         protected override void OnStart()
