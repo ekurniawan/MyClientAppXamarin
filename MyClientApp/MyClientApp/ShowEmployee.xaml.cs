@@ -30,5 +30,11 @@ namespace MyClientApp
         {
             await Navigation.PushAsync(new AddEmployeePage());
         }
+
+        private async void lvEmployee_Refreshing(object sender, EventArgs e)
+        {
+            lvEmployee.ItemsSource = await empServices.GetData();
+            lvEmployee.IsRefreshing = false;
+        }
     }
 }

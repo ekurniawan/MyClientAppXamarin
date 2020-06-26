@@ -7,7 +7,7 @@
              x:Class="MyClientApp.ShowEmployee">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="lvEmployee">
+            <ListView x:Name="lvEmployee" IsPullToRefreshEnabled="True" Refreshing="lvEmployee_Refreshing">
                 <ListView.Header>
                     <Grid>
                         <Grid.RowDefinitions>
