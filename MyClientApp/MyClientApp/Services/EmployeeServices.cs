@@ -36,5 +36,40 @@ namespace MyClientApp.Services
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task InsertData(Employee emp)
+        {
+            var uriPost = new Uri($"{restUrl}api/Employee");
+            try
+            {
+                var json = JsonConvert.SerializeObject(emp);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _client.PostAsync(uriPost, content);
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception("Gagal tambah data !");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        //dd
+        public async Task UpdateData(Employee emp)
+        {
+            var uriPut = new Uri($"{restUrl}api/Employee");
+            try
+            {
+                var json = JsonConvert.SerializeObject(emp);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await _client.PutAsync(uriPut, content);
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception("Gagal edit data !");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
